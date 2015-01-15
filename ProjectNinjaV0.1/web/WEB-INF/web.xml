@@ -9,4 +9,33 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+        org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+      </filter-class>
+  </filter>
+   
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>FORWARD</dispatcher> 
+	<dispatcher>REQUEST</dispatcher> 
+  </filter-mapping>
+  <servlet>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<servlet-class>nl.captcha.servlet.SimpleCaptchaServlet</servlet-class>
+		<init-param>
+			<param-name>captcha-width</param-name>
+			<param-value>300</param-value>
+		</init-param>
+		<init-param>
+			<param-name>captcha-height</param-name>
+			<param-value>100</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<url-pattern>/simpleCaptcha.png</url-pattern>
+	</servlet-mapping>
 </web-app>
